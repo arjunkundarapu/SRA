@@ -7,6 +7,7 @@ load_dotenv()
 SUPABASE_URL = os.getenv("SUPABASE_URL")
 SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 SUPABASE_SERVICE_KEY = os.getenv("SUPABASE_SERVICE_KEY")
+print(SUPABASE_URL)
 
 if not SUPABASE_URL:
     raise ValueError("SUPABASE_URL environment variable is required")
@@ -15,7 +16,6 @@ if not SUPABASE_KEY:
 if not SUPABASE_SERVICE_KEY:
     raise ValueError("SUPABASE_SERVICE_KEY environment variable is required")
 
-print(SUPABASE_URL)
 
 # Regular client for normal operations (with RLS)
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)

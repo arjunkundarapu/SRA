@@ -26,6 +26,7 @@ CREATE TABLE interview_sessions (
   end_time TIMESTAMPTZ,
   status TEXT NOT NULL DEFAULT 'active' CHECK (status IN ('active', 'completed', 'cancelled')),
   resume_data JSONB,
+  interview_type TEXT DEFAULT 'text' CHECK (interview_type IN ('text', 'video')),
   created_at TIMESTAMPTZ DEFAULT NOW(),
   updated_at TIMESTAMPTZ DEFAULT NOW()
 );
@@ -40,6 +41,7 @@ CREATE TABLE interview_messages (
   role TEXT NOT NULL CHECK (role IN ('user', 'assistant')),
   content TEXT NOT NULL,
   timestamp TIMESTAMPTZ NOT NULL,
+  message_type TEXT DEFAULT 'text' CHECK (message_type IN ('text', 'audio', 'video')),
   created_at TIMESTAMPTZ DEFAULT NOW()
 );
 ```
@@ -54,6 +56,7 @@ CREATE TABLE interview_reports (
   report_content TEXT NOT NULL,
   interview_duration TEXT,
   total_questions INTEGER DEFAULT 0,
+  interview_type TEXT DEFAULT 'text' CHECK (interview_type IN ('text', 'video')),
   generated_at TIMESTAMPTZ NOT NULL,
   status TEXT NOT NULL DEFAULT 'completed' CHECK (status IN ('completed', 'draft')),
   created_at TIMESTAMPTZ DEFAULT NOW(),

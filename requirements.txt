@@ -8,5 +8,20 @@ python-dotenv
 requests
 PyPDF2
 python-docx
-websockets
+websockets>=10.0
 streamlit
+
+# Enhanced Video Interview Dependencies
+opencv-python>=4.5.0
+numpy>=1.21.0
+pyaudio>=0.2.11
+Pillow>=8.0.0
+pyttsx3>=2.90
+SpeechRecognition>=3.8.0
+
+# Windows-specific TTS dependencies
+pywin32>=301; sys_platform == "win32"
+comtypes>=1.1.0; sys_platform == "win32"
+
+# Additional utilities
+aiofiles

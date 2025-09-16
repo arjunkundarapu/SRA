@@ -1,4 +1,5 @@
 from pydantic import BaseModel,EmailStr
+from pydantic import BaseModel,EmailStr
 from typing import Optional, List, Dict, Any
 from datetime import datetime
 
@@ -14,11 +15,11 @@ class LoginRequest(BaseModel):
 
 # Resume and Applicant Schemas
 class ResumeData(BaseModel):
-    raw_text: str
+    raw_text: Optional[str] = None
     contact_info: Dict[str, Any]
     skills: List[str]
     experience: List[Dict[str, Any]]
-    education: List[str]
+    education: Optional[List[str]] = None
     summary: str
 
 class ResumeUploadResponse(BaseModel):
